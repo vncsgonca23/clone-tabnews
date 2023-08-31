@@ -11,10 +11,10 @@ jobs:
 
       - name: Create pull request
         id: open-pr
-        uses: repo-sync/pull-request@v2
+        uses: diillson/auto-pull-request@latest
         with:
           destionation_branch: "development"
-          title: "Merge Feature into Development"
+          pr_title: "Merge Feature into Development"
         # run: gh pr create -B development -H 'feature/**' --title 'Merge Feature into Development' --body 'Created automatic Pull Request by Github action.'
         env:
             GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
