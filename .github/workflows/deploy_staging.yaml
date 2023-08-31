@@ -4,6 +4,7 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   pull_request:
+    types: [closed]
     branches:
       - staging
 jobs:
@@ -19,3 +20,13 @@ jobs:
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+  CreatePullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create pull request
+        run: gh pr create -B production -H staging --title 'Merge Staging into Production' --body 'Created automatic Pull Request by Github action.'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
