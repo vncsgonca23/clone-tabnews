@@ -14,7 +14,6 @@ jobs:
         uses: diillson/auto-pull-request@latest
         with:
           destionation_branch: "development"
-          pr_title: "Merge Feature into Development"
         # run: gh pr create -B development -H 'feature/**' --title 'Merge Feature into Development' --body 'Created automatic Pull Request by Github action.'
         env:
             GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
