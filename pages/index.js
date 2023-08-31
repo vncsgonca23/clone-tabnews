@@ -1,5 +1,18 @@
-function Home(){
-    return <h1>Teste 6</h1>
-}
+"use client"
+export default function Home({data}){
+    return(
+        <div>
+            {data.frases.map(frase=>(<p key={frase.texto}>{frase.texto}</p>))}
+        </div>
+    )
+}   
 
-export default Home;
+export async function getStaticProps(){
+    const response = await fetch(`https://pensador-api.vercel.app/?term=São Paulo&max=4`)
+    const data = await response.json()
+    return{
+        props:{
+            data
+        }
+    }
+}

@@ -4,14 +4,14 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "dev": "next dev"
+        "dev": "next dev"
     },
-    "author": "",
+    "author": "Vinicius Gonçalves",
     "license": "MIT",
     "dependencies": {
-      "next": "^13.1.6",
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+        "axios": "^1.5.0",
+        "next": "^13.1.6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     }
-  }
-  
+}
