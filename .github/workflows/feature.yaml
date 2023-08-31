@@ -13,3 +13,4 @@ jobs:
         run: gh pr create -B development -H feature/** --title 'Merge Feature into Development' --body 'Created automatic Pull Request by Github action.'
         env:
             GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+            GH_TOKEN: ${{ secrets.GIT_TOKEN }}

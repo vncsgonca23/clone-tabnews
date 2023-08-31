@@ -30,3 +30,4 @@ jobs:
         run: gh pr create -B production -H staging --title 'Merge Staging into Production' --body 'Created automatic Pull Request by Github action.'
         env:
             GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+            GH_TOKEN: ${{ secrets.GIT_TOKEN }}
