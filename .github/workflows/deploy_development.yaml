@@ -29,4 +29,4 @@ jobs:
       - name: Create pull request
         run: gh pr create -B staging -H development --title 'Merge Development into Staging' --body 'Created automatic Pull Request by Github action.'
         env:
-            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+            GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
