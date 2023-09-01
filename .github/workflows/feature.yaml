@@ -1,18 +1,15 @@
 on:
   push:
     branches:
-      - 'feature/**'
+      - feature/*
 jobs:
   Create-Pull-Request-Action:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: quangvo09/pull-request-action@v1
-        name: Create PR to develop
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
         with:
+          destination_branch: "development"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch_prefix: feature
-          base_branch: develop
-          labels: feature,develop
-          assignees: vncsgonca23
-          reviewers: vncsgonca23
+          pr_title: "PR feature to Development"
