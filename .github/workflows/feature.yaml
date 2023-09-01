@@ -16,3 +16,4 @@ jobs:
         uses: diillson/auto-pull-request@latest
         with:
           destination_branch: "development"
+          github_token: ${{ secrets.GH_TOKEN }} 
