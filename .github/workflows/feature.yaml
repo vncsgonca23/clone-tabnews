@@ -13,7 +13,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: diillson/auto-pull-request@latest
         with:
-          branch: "development"
-          title: "PR feature to Development"
+          destination_branch: "development"
