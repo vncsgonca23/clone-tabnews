@@ -5,13 +5,16 @@ on:
 jobs:
   Create-Pull-Request-Action:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "development"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "feature, automated pr"
           pr_title: "PR feature to Development"
