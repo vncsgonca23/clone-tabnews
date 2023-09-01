@@ -3,18 +3,16 @@ on:
     branches:
       - 'feature/**'
 jobs:
-  CreatePullRequest:
+  Create-Pull-Request-Action:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Create pull request
-        id: open-pr
-        uses: diillson/auto-pull-request@latest
+      - uses: actions/checkout@v3
+      - uses: quangvo09/pull-request-action@v1
+        name: Create PR to develop
         with:
-          destionation_branch: "development"
-        # run: gh pr create -B development -H 'feature/**' --title 'Merge Feature into Development' --body 'Created automatic Pull Request by Github action.'
-        env:
-            GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-            GH_TOKEN: ${{ secrets.GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch_prefix: feature
+          base_branch: develop
+          labels: hotfix,develop
+          assignees: vncsgonca23
+          reviewers: vncsgonca23
