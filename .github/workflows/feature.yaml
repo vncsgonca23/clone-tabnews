@@ -13,6 +13,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch_prefix: feature
           base_branch: develop
-          labels: hotfix,develop
+          labels: feature,develop
           assignees: vncsgonca23
           reviewers: vncsgonca23
